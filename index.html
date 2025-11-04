@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0c10;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #1f2833;
+      padding: 20px;
+      font-size: 24px;
+    }
+
+    .game-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .game-card {
+      background: #45a29e;
+      border-radius: 12px;
+      padding: 20px;
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+    }
+
+    iframe {
+      margin-top: 20px;
+      border: none;
+      width: 800px;
+      height: 500px;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    button {
+      background: #66fcf1;
+      border: none;
+      color: #0b0c10;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>🎮 Game Hub</header>
+
+  <div class="game-list">
+    <div class="game-card" onclick="loadGame('https://example.com/flappybird')">
+      Flappy Bird
+    </div>
+    <div class="game-card" onclick="loadGame('https://example.com/runner')">
+      Endless Runner
+    </div>
+    <div class="game-card" onclick="loadGame('https://example.com/snake')">
+      Snake
+    </div>
+  </div>
+
+  <div id="game-frame-container"></div>
+
+  <script>
+    function loadGame(url) {
+      const container = document.getElementById("game-frame-container");
+      container.innerHTML = `<iframe src="${url}" title="Game"></iframe><br>
+      <button onclick="closeGame()">Exit Game</button>`;
+    }
+
+    function closeGame() {
+      document.getElementById("game-frame-container").innerHTML = "";
+    }
+  </script>
+</body>
+</html>
